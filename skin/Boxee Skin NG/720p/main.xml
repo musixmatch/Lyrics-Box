@@ -1,0 +1,181 @@
+<?xml version="1.0"?>
+<window type="window" id="14444">
+	<defaultcontrol always="true">51</defaultcontrol>
+	<allowoverlay>no</allowoverlay>
+	<onload lang="python">
+<![CDATA[
+from libs import app
+a = app.Karaoke()
+a.Start()
+
+]]>
+	</onload> 
+	<controls>
+		<include>Common_Background</include>
+		<include>Common_Status</include>
+
+		<control type="image">
+                    <posx>0</posx>
+                    <posy>0</posy>
+                    <width>1280</width>
+                    <height>720</height>
+                    <texture>background-karaoke.png</texture>
+                </control>
+
+                <control type="largeimage">
+                    <posx>100</posx>
+                    <posy>100</posy>
+                    <width>110</width>
+                    <height>110</height>
+                    <texture>$INFO[MusicPlayer.Cover]</texture>
+                </control>
+
+                <control type="label">
+                    <posx>250</posx>
+                    <posy>100</posy>
+                    <width>300</width>
+                    <height>26</height>
+                    <font>font22b</font>
+                    <align>left</align>
+                    <aligny>center</aligny>
+                    <label>$INFO[MusicPlayer.Title]</label>
+                    <textcolor>white</textcolor>
+                </control>
+                <control type="label">
+                    <posx>250</posx>
+                    <posy>140</posy>
+                    <width>300</width>
+                    <height>26</height>
+                    <font>font22b</font>
+                    <align>left</align>
+                    <aligny>center</aligny>
+                    <label>$INFO[MusicPlayer.Artist]</label>
+                    <textcolor>grey</textcolor>
+                </control>
+                <control type="label">
+                    <posx>250</posx>
+                    <posy>180</posy>
+                    <width>300</width>
+                    <height>26</height>
+                    <font>font22b</font>
+                    <align>left</align>
+                    <aligny>center</aligny>
+                    <label>$INFO[MusicPlayer.Time]</label>
+                    <textcolor>white</textcolor>
+                </control>
+                <control type="button" id="100">
+                   <description>pauze</description>
+                   <posx>610</posx>
+                   <posy>100</posy>
+                   <width>50</width>
+                   <height>50</height>
+                   <texturefocus>button_pause_on.png</texturefocus>
+                   <texturenofocus>button_pause.png</texturenofocus>
+                   <onup>-</onup>
+                   <ondown>51</ondown>
+                   <onleft>-</onleft>
+                   <onright>101</onright>
+                   <onclick lang="python">
+<![CDATA[
+player = mc.GetPlayer()
+player.Pause()
+]]>
+                   </onclick>
+                </control>
+
+                <control type="button" id="101">
+                   <description>next</description>
+                   <posx>670</posx>
+                   <posy>100</posy>
+                   <width>50</width>
+                   <height>50</height>
+                   <texturefocus>button_next_on.png</texturefocus>
+                   <texturenofocus>button_next.png</texturenofocus>
+                   <onup>-</onup>
+                   <ondown>51</ondown>
+                   <onleft>100</onleft>
+                   <onright>-</onright>
+                   <onclick lang="python">
+<![CDATA[
+from libs import app
+import time, mc
+player = mc.GetPlayer()
+player.PlayNext()
+
+]]>
+                   </onclick>
+                </control>
+                <control type="image">
+                    <posx>750</posx>
+                    <posy>100</posy>
+                    <width>50</width>
+                    <height>50</height>
+                    <texture>$INFO[Container(51).ListItem.property(custom:icon)]</texture>
+                </control>
+
+                <control type="group" id="1200">
+			<animation type="Conditional" condition="Window.IsVisible(DialogProgress.xml)">
+				<effect type="fade" start="100" end="20" time="200"/>
+			</animation>
+
+			<control type="wraplist" id="51">
+				<preloaditems>2</preloaditems>
+				<posx>90</posx>
+				<posy>220</posy>
+				<width>750</width>
+				<height>380</height>
+				<scrolltime>300</scrolltime>
+				<pagecontrol>60</pagecontrol>
+				<orientation>vertical</orientation>
+				<offsetx>4</offsetx>
+				<offsety>4</offsety>
+                                <viewtype label="3D list">list</viewtype>
+                                <focusposition>3</focusposition>
+                                <onleft>101</onleft>
+                                <onright>101</onright>
+                                <onup>101</onup>
+                                <ondown>101</ondown>
+
+				<itemlayout width="750" height="40">
+					<control type="label">
+						<posx>5</posx>
+						<posy>17</posy>
+						<width>730</width>
+						<height>40</height>
+						<font>font25b</font>
+						<align>left</align>
+						<aligny>center</aligny>
+						<label>$INFO[ListItem.Label]</label>
+						<textcolor>white</textcolor>
+					</control>
+				</itemlayout>
+                                <focusedlayout width="750" height="70">
+					<control type="label">
+						<posx>5</posx>
+						<posy>17</posy>
+						<width>730</width>
+						<height>70</height>
+						<font>serif28b</font>
+						<align>left</align>
+						<aligny>center</aligny>
+						<label>$INFO[ListItem.Label]</label>
+						<textcolor>yellow</textcolor>
+					</control>
+                                </focusedlayout>
+                                <content type="url" url="">
+					<onclick lang="python">
+<![CDATA[
+]]>
+					</onclick>
+				</content>
+			</control>
+                        <control type="image">
+                            <posx>64</posx>
+                            <posy>209</posy>
+                            <width>727</width>
+                            <height>470</height>
+                            <texture>texturemap.png</texture>
+                        </control>
+                </control>
+	</controls>
+</window>

@@ -1,0 +1,16 @@
+	<app>
+		<id>com.bart2.karaoke</id>
+		<name>Lyrics Box</name>
+		<version>0.3</version>
+		<description>Shows you instant lyrics for your music!</description>
+		<thumb>http://www.bartsidee.nl/box/apps/karaoke/thumb.png</thumb>
+		<repositoryid>com.bart2</repositoryid>
+		<repository>http://www.bartsidee.nl/box</repository>
+		<media>video</media>
+		<copyright>bartsidee</copyright>
+		<email>bartsidee@gmail.com</email>
+		<type>skin</type>
+		<startWindow>14444</startWindow>
+		<platform>all</platform>
+		<minversion>0.9.14</minversion>
+	</app>
